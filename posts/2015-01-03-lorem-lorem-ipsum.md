@@ -1,9 +1,9 @@
 ---
-background: "#7AAB13"
-category: MIH
+background: "#ff00ff"
+category: SFR
 date: 2015-01-03 05:54:23
-title: Made In Heaven
-description: I'm taking my ride with destiny. Willing to play my part. Living with painful memories!
+title: Stone Free
+description: Stone free to do what I please. Stone free to ride the breeze. Stone free I can't stay.
 ---
 
 # Lorem ipsum
