@@ -1,9 +1,9 @@
 ---
-background: "#ff00ff"
-category: SFR
+background: "#dc143c"
+category: CKS
 date: 2015-01-03 05:54:23
-title: Stone Free
-description: Stone free to do what I please. Stone free to ride the breeze. Stone free I can't stay.
+title: Court of the Crimson King
+description: The rusted chains of prison moons. Are shattered by the sun.
 ---
 
 # Lorem ipsum
