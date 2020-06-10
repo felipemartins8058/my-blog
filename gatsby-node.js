@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require("path")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 //to add slug field to each post
@@ -27,7 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return graphql(`
     {
-      allMarkdownRemark (sort: {fields: frontmatter___date, order: DESC}) {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             frontmatter {
@@ -42,13 +42,29 @@ exports.createPages = ({ graphql, actions }) => {
               slug
             }
           }
+          next {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+          previous {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
+          }
         }
       }
     }
   `).then(result => {
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach(({ node }) => {
+    posts.forEach(({ node, next, previous }) => {
       createPage({
         path: node.fields.slug,
         component: path.resolve(`./src/templates/blog-post.js`),
@@ -56,6 +72,8 @@ exports.createPages = ({ graphql, actions }) => {
           // Data passed to context is available
           // in page queries as GraphQL variables.
           slug: node.fields.slug,
+          previousPost: next,
+          nextPost: previous
         },
       })
     })
@@ -63,7 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
     const postsPerPage = 5
     const numPages = Math.ceil(posts.length / postsPerPage)
 
-    Array.from({length : numPages}).forEach((_, index) => {
+    Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
         path: index === 0 ? `/` : `/page/${index + 1}`,
         component: path.resolve(`./src/templates/blog-list.js`),
@@ -71,8 +89,8 @@ exports.createPages = ({ graphql, actions }) => {
           limit: postsPerPage,
           skip: index * postsPerPage,
           numPages,
-          currentPage: index + 1
-        }
+          currentPage: index + 1,
+        },
       })
     })
   })
