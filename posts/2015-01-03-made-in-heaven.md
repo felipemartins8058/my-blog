@@ -10,9 +10,29 @@ description: I'm taking my ride with destiny. Willing to play my part. Living wi
 
 Proin suscipit luctus orci placerat fringilla. Donec hendrerit laoreet risus eget adipiscing. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, [adipiscing](http://google.com) eu pulvinar vel, sodales vitae dui. :thumbsup: :smile: :sparkler:
 
-```javascript
-a=3
-puts a
+```JSX
+
+import React from "react"
+import PropTypes from "prop-types"
+import Sidebar from "../Sidebar"
+import Menubar from "../Menubar"
+
+import * as S from "./styled"
+import GlobalStyles from "../../styles/global"
+
+const Layout = ({ children }) => {
+  return (
+        <S.LayoutWrapper>
+          <GlobalStyles/>
+          <Sidebar />
+          <S.LayoutMain>{children}</S.LayoutMain>
+          <Menubar/>
+        </S.LayoutWrapper>
+  )
+}
+
+//The point is coming...
+
 ```
 
 ## Fusce a metus eu
