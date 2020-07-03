@@ -6,6 +6,10 @@ export const PostItemLink = styled(Link)`
     display: flex;
     text-decoration: none;
 
+    body#grid &{
+        background-color: var(--background);   
+    }
+
     &:hover{
         color: var(--highlight);
     }
@@ -17,6 +21,13 @@ export const PostItemWrapper = styled.section`
     display: flex;
     padding: 2rem 3rem;
     width: 100%;
+
+    body#body &{
+        border: none;
+        padding: 2rem 1 rem;
+        flex-direction: column ;
+        justify-content: center;
+    }
 `
 
 export const PostItemTag = styled.div`
@@ -47,5 +58,10 @@ export const PostItemTitle = styled.h1`
     font-size: 1.6rem;
     font-weight: 700;
     margin: .2rem 0 .5rem;
+    
+    body#grid &{
+        line-height: 1.1;
+        margin: .8rem 0;
+    }
 `
 export const PostItemDescription = styled.p``

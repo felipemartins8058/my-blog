@@ -27,6 +27,23 @@ export const SearchWrapper = styled.section`
     color: var(--texts);
   }
 
+  body#grid &{
+    .ais-Hits-list{
+      background-color: var(--borders);
+      border-bottom: solid 1px var(--borders);
+      border-top: solid 1px var(--borders);
+      display: grid;
+      grid-area: card;
+      grid-gap: 1px;
+      grid-template-columns: repeat(autofil, minmax(380px, 1fr));
+      margin-top: 2rem;
+    }
+
+    .ais-Hits-item{
+      background-color: var(--background);
+    }
+  }
+
   .ais-SearchBox-input {
     background: none;
     border: none;
